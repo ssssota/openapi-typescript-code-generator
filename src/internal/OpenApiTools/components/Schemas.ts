@@ -140,7 +140,7 @@ export const generateNamespace = (
       return store.addStatement(
         path,
         {
-          kind: "interface",
+          kind: "typeAlias",
           name: convertContext.escapeDeclarationText(name),
           value: Schema.generateInterface(entryPoint, currentPoint, factory, name, schema, context, convertContext),
         },
@@ -151,7 +151,7 @@ export const generateNamespace = (
       return store.addStatement(
         path,
         {
-          kind: "interface",
+          kind: "typeAlias",
           name: convertContext.escapeDeclarationText(name),
           value: Schema.generateInterface(entryPoint, currentPoint, factory, name, schema, context, convertContext),
         },

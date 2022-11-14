@@ -85,9 +85,9 @@ exports[`Multi Type types 1`] = `
 
 
 export namespace Schemas {
-    export interface Pet {
+    export type Pet = {
         pet_type: string;
-    }
+    };
     export type Dog = Schemas.Pet & {
         bark?: boolean;
         breed?: \\"Dingo\\" | \\"Husky\\" | \\"Retriever\\" | \\"Shepherd\\";

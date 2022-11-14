@@ -50,10 +50,10 @@ export const generateInterface = (
   schema: ObjectSchema,
   context: ToTypeNode.Context,
   convertContext: ConvertContext.Types,
-): ts.InterfaceDeclaration => {
-  if (schema.type !== "object") {
-    throw new FeatureDevelopmentError("Please use generateTypeAlias");
-  }
+): ts.TypeAliasDeclaration => {
+  // if (schema.type !== "object") {
+  //   throw new FeatureDevelopmentError("Please use generateTypeAlias");
+  // }
   let members: ts.TypeElement[] = [];
   const propertySignatures = generatePropertySignatures(entryPoint, currentPoint, factory, schema, context, convertContext);
   if (Guard.isObjectSchemaWithAdditionalProperties(schema)) {
@@ -66,11 +66,17 @@ export const generateInterface = (
   } else {
     members = propertySignatures;
   }
-  return factory.InterfaceDeclaration.create({
+  const typeNode = factory.TypeNode.create({ type: "object", value: members });
+  return factory.TypeAliasDeclaration.create({
     export: true,
     name: convertContext.escapeDeclarationText(name),
-    members,
     comment: ExternalDocumentation.addComment(schema.description, schema.externalDocs),
+    type:
+      schema.nullable === true
+        ? factory.UnionTypeNode.create({
+            typeNodes: [typeNode, factory.TypeNode.create({ type: "null" })],
+          })
+        : typeNode,
   });
 };
 
@@ -240,7 +246,7 @@ export const addSchema = (
     });
   } else if (Guard.isObjectSchema(schema)) {
     store.addStatement(targetPoint, {
-      kind: "interface",
+      kind: "typeAlias",
       name: convertContext.escapeDeclarationText(declarationName),
       value: generateInterface(entryPoint, currentPoint, factory, declarationName, schema, context, convertContext),
     });

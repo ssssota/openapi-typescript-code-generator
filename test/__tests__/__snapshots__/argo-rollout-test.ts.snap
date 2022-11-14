@@ -10,7 +10,7 @@ exports[`Argo Rollout client.ts 1`] = `
 
 
 export namespace Schemas {
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ALBTrafficRouting {
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ALBTrafficRouting = {
         /** Ingress refers to the name of an \`Ingress\` resource in the same namespace as the \`Rollout\` */
         ingress?: string;
         /** ServicePort refers to the port that the Ingress action should route traffic to */
@@ -22,22 +22,22 @@ export namespace Schemas {
          * +optional
          */
         annotationPrefix?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AmbassadorTrafficRouting {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AmbassadorTrafficRouting = {
         /**
          * Mappings refer to the name of the Ambassador Mappings used to route traffic to the
          * service
          */
         mappings?: string[];
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunArgument {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunArgument = {
         /** Name argument name */
         name?: string;
         /** Value a hardcoded value for the argument. This field is a one of field with valueFrom */
         value?: string;
         valueFrom?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ArgumentValueFrom;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunStrategy {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunStrategy = {
         /** SuccessfulRunHistoryLimit limits the number of old successful analysis runs and experiments to be retained in a history */
         successfulRunHistoryLimit?: number;
         /**
@@ -45,17 +45,17 @@ export namespace Schemas {
          * Stages for unsuccessful: \\"Error\\", \\"Failed\\", \\"Inconclusive\\"
          */
         unsuccessfulRunHistoryLimit?: number;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AntiAffinity {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AntiAffinity = {
         preferredDuringSchedulingIgnoredDuringExecution?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PreferredDuringSchedulingIgnoredDuringExecution;
         requiredDuringSchedulingIgnoredDuringExecution?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RequiredDuringSchedulingIgnoredDuringExecution;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ArgumentValueFrom {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ArgumentValueFrom = {
         /** PodTemplateHashValue gets the value from one of the children ReplicaSet's Pod Template Hash */
         podTemplateHashValue?: string;
         fieldRef?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$FieldRef;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$BlueGreenStatus {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$BlueGreenStatus = {
         /**
          * PreviewSelector indicates which replicas set the preview service is serving traffic to
          * +optional
@@ -73,8 +73,8 @@ export namespace Schemas {
         scaleUpPreviewCheckPoint?: boolean;
         prePromotionAnalysisRunStatus?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisRunStatus;
         postPromotionAnalysisRunStatus?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisRunStatus;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$BlueGreenStrategy {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$BlueGreenStrategy = {
         /** Name of the service that the rollout modifies as the active service. */
         activeService?: string;
         /**
@@ -128,23 +128,23 @@ export namespace Schemas {
          * +optional
          */
         abortScaleDownDelaySeconds?: number;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStatus {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStatus = {
         currentStepAnalysisRunStatus?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisRunStatus;
         currentBackgroundAnalysisRunStatus?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisRunStatus;
         /** CurrentExperiment indicates the running experiment */
         currentExperiment?: string;
-    }
+    };
     /** CanaryStep defines a step of a canary deployment. */
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStep {
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStep = {
         /** SetWeight sets what percentage of the newRS should receive */
         setWeight?: number;
         pause?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutPause;
         experiment?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentStep;
         analysis?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysis;
         setCanaryScale?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$SetCanaryScale;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStrategy {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStrategy = {
         /**
          * CanaryService holds the name of a service which selects pods with canary version and don't select any pods with stable version.
          * +optional
@@ -189,30 +189,30 @@ export namespace Schemas {
          * +optional
          */
         abortScaleDownDelaySeconds?: number;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$FieldRef {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$FieldRef = {
         /** Required: Path of the field to select in the specified API version */
         fieldPath?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioDestinationRule {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioDestinationRule = {
         /** Name holds the name of the DestinationRule */
         name?: string;
         /** CanarySubsetName is the subset name to modify labels with canary ReplicaSet pod template hash value */
         canarySubsetName?: string;
         /** StableSubsetName is the subset name to modify labels with stable ReplicaSet pod template hash value */
         stableSubsetName?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioTrafficRouting {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioTrafficRouting = {
         virtualService?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioVirtualService;
         destinationRule?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioDestinationRule;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioVirtualService {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioVirtualService = {
         /** Name holds the name of the VirtualService */
         name?: string;
         /** Routes are list of routes within VirtualService to edit. If omitted, VirtualService must have a single route */
         routes?: string[];
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$NginxTrafficRouting {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$NginxTrafficRouting = {
         /**
          * AnnotationPrefix has to match the configured annotation prefix on the nginx ingress controller
          * +optional
@@ -224,20 +224,20 @@ export namespace Schemas {
         additionalIngressAnnotations?: {
             [key: string]: string;
         };
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ObjectRef {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ObjectRef = {
         /** API Version of the referent */
         apiVersion?: string;
         /** Kind of the referent */
         kind?: string;
         /** Name of the referent */
         name?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PauseCondition {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PauseCondition = {
         reason?: string;
         startTime?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$Time;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PodTemplateMetadata {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PodTemplateMetadata = {
         /**
          * Labels Additional labels to add to the experiment
          * +optional
@@ -252,19 +252,18 @@ export namespace Schemas {
         annotations?: {
             [key: string]: string;
         };
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PreferredDuringSchedulingIgnoredDuringExecution {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PreferredDuringSchedulingIgnoredDuringExecution = {
         /** Weight associated with matching the corresponding podAffinityTerm, in the range 1-100. */
         weight?: number;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RequiredDuringSchedulingIgnoredDuringExecution {
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$Rollout {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RequiredDuringSchedulingIgnoredDuringExecution = {};
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$Rollout = {
         metadata?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         spec?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutSpec;
         status?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutStatus;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysis {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysis = {
         /** Templates reference to a list of analysis templates to combine for an AnalysisRun */
         templates?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisTemplate[];
         /**
@@ -273,21 +272,21 @@ export namespace Schemas {
          * +patchStrategy=merge
          */
         args?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunArgument[];
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisBackground {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisBackground = {
         rolloutAnalysis?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysis;
         /**
          * StartingStep indicates which step the background analysis should start on
          * If not listed, controller defaults to 0
          */
         startingStep?: number;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisRunStatus {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisRunStatus = {
         name?: string;
         status?: string;
         message?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisTemplate {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutAnalysisTemplate = {
         /**
          * TemplateName name of template to use in AnalysisRun
          * +optional
@@ -298,9 +297,9 @@ export namespace Schemas {
          * +optional
          */
         clusterScope?: boolean;
-    }
+    };
     /** RolloutCondition describes the state of a rollout at a certain point. */
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutCondition {
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutCondition = {
         /** Type of deployment condition. */
         type?: string;
         /** Phase of the condition, one of True, False, Unknown. */
@@ -311,8 +310,8 @@ export namespace Schemas {
         reason?: string;
         /** A human readable message indicating details about the transition. */
         message?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentStep {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentStep = {
         /**
          * Templates what templates that should be added to the experiment. Should be non-nil
          * +patchMergeKey=name
@@ -330,8 +329,8 @@ export namespace Schemas {
          * +patchStrategy=merge
          */
         analyses?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentStepAnalysisTemplateRef[];
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentStepAnalysisTemplateRef {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentStepAnalysisTemplateRef = {
         /** Name is a name for this analysis template invocation */
         name?: string;
         /** TemplateName reference of the AnalysisTemplate name used by the Experiment to create the run */
@@ -349,8 +348,8 @@ export namespace Schemas {
         args?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunArgument[];
         /** RequiredForCompletion blocks the Experiment from completing until the analysis has completed */
         requiredForCompletion?: boolean;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentTemplate {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutExperimentTemplate = {
         /** Name description of template that passed to the template */
         name?: string;
         /** SpecRef indicates where the rollout should get the RS template from */
@@ -362,11 +361,11 @@ export namespace Schemas {
         replicas?: number;
         metadata?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$PodTemplateMetadata;
         selector?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelector;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutPause {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutPause = {
         duration?: Schemas.k8s$io$apimachinery$pkg$util$intstr$IntOrString;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutSpec {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutSpec = {
         /**
          * Number of desired pods. This is a pointer to distinguish between explicit
          * zero and not specified. Defaults to 1.
@@ -399,8 +398,8 @@ export namespace Schemas {
         progressDeadlineSeconds?: number;
         restartAt?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$Time;
         analysis?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AnalysisRunStrategy;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutStatus {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutStatus = {
         /** Abort cancel the current rollout progression */
         abort?: boolean;
         /** PauseConditions indicates why the rollout is currently paused */
@@ -497,19 +496,19 @@ export namespace Schemas {
         phase?: string;
         /** Message provides details on why the rollout is in its current phase */
         message?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutStrategy {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutStrategy = {
         blueGreen?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$BlueGreenStrategy;
         canary?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStrategy;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutTrafficRouting {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$RolloutTrafficRouting = {
         istio?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$IstioTrafficRouting;
         nginx?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$NginxTrafficRouting;
         alb?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$ALBTrafficRouting;
         smi?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$SMITrafficRouting;
         ambassador?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$AmbassadorTrafficRouting;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$SMITrafficRouting {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$SMITrafficRouting = {
         /**
          * RootService holds the name of that clients use to communicate.
          * +optional
@@ -520,8 +519,8 @@ export namespace Schemas {
          * +optional
          */
         trafficSplitName?: string;
-    }
-    export interface github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$SetCanaryScale {
+    };
+    export type github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$SetCanaryScale = {
         /**
          * Weight sets the percentage of replicas the newRS should have
          * +optional
@@ -537,24 +536,24 @@ export namespace Schemas {
          * +optional
          */
         matchTrafficWeight?: boolean;
-    }
-    export interface google$protobuf$Any {
+    };
+    export type google$protobuf$Any = {
         type_url?: string;
         value?: string;
-    }
-    export interface grpc$gateway$runtime$Error {
+    };
+    export type grpc$gateway$runtime$Error = {
         error?: string;
         code?: number;
         message?: string;
         details?: Schemas.google$protobuf$Any[];
-    }
-    export interface grpc$gateway$runtime$StreamError {
+    };
+    export type grpc$gateway$runtime$StreamError = {
         grpc_code?: number;
         http_code?: number;
         message?: string;
         http_status?: string;
         details?: Schemas.google$protobuf$Any[];
-    }
+    };
     /**
      * Represents a Persistent Disk resource in AWS.
      *
@@ -563,7 +562,7 @@ export namespace Schemas {
      * can only be mounted as read/write once. AWS EBS volumes support
      * ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$AWSElasticBlockStoreVolumeSource {
+    export type k8s$io$api$core$v1$AWSElasticBlockStoreVolumeSource = {
         /**
          * Unique ID of the persistent disk resource in AWS (Amazon EBS volume).
          * More info: https://kubernetes.io/docs/concepts/storage/volumes#awselasticblockstore
@@ -593,15 +592,15 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /** Affinity is a group of affinity scheduling rules. */
-    export interface k8s$io$api$core$v1$Affinity {
+    export type k8s$io$api$core$v1$Affinity = {
         nodeAffinity?: Schemas.k8s$io$api$core$v1$NodeAffinity;
         podAffinity?: Schemas.k8s$io$api$core$v1$PodAffinity;
         podAntiAffinity?: Schemas.k8s$io$api$core$v1$PodAntiAffinity;
-    }
+    };
     /** AzureDisk represents an Azure Data Disk mount on the host and bind mount to the pod. */
-    export interface k8s$io$api$core$v1$AzureDiskVolumeSource {
+    export type k8s$io$api$core$v1$AzureDiskVolumeSource = {
         /** The Name of the data disk in the blob storage */
         diskName?: string;
         /** The URI the data disk in the blob storage */
@@ -626,9 +625,9 @@ export namespace Schemas {
         readOnly?: boolean;
         /** Expected values Shared: multiple blob disks per storage account  Dedicated: single blob disk per storage account  Managed: azure managed data disk (only in managed availability set). defaults to shared */
         kind?: string;
-    }
+    };
     /** AzureFile represents an Azure File Service mount on the host and bind mount to the pod. */
-    export interface k8s$io$api$core$v1$AzureFileVolumeSource {
+    export type k8s$io$api$core$v1$AzureFileVolumeSource = {
         /** the name of secret that contains Azure Storage Account Name and Key */
         secretName?: string;
         /** Share Name */
@@ -639,8 +638,8 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
-    export interface k8s$io$api$core$v1$CSIVolumeSource {
+    };
+    export type k8s$io$api$core$v1$CSIVolumeSource = {
         /**
          * Driver is the name of the CSI driver that handles this volume.
          * Consult with your admin for the correct name as registered in the cluster.
@@ -668,9 +667,9 @@ export namespace Schemas {
             [key: string]: string;
         };
         nodePublishSecretRef?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
-    }
+    };
     /** Adds and removes POSIX capabilities from running containers. */
-    export interface k8s$io$api$core$v1$Capabilities {
+    export type k8s$io$api$core$v1$Capabilities = {
         /**
          * Added capabilities
          * +optional
@@ -681,12 +680,12 @@ export namespace Schemas {
          * +optional
          */
         drop?: string[];
-    }
+    };
     /**
      * Represents a Ceph Filesystem mount that lasts the lifetime of a pod
      * Cephfs volumes do not support ownership management or SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$CephFSVolumeSource {
+    export type k8s$io$api$core$v1$CephFSVolumeSource = {
         /**
          * Required: Monitors is a collection of Ceph monitors
          * More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
@@ -717,14 +716,14 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /**
      * Represents a cinder volume resource in Openstack.
      * A Cinder volume must exist before mounting to a container.
      * The volume must also be in the same region as the kubelet.
      * Cinder volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$CinderVolumeSource {
+    export type k8s$io$api$core$v1$CinderVolumeSource = {
         /**
          * volume id used to identify the volume in cinder.
          * More info: https://examples.k8s.io/mysql-cinder-pd/README.md
@@ -746,7 +745,7 @@ export namespace Schemas {
          */
         readOnly?: boolean;
         secretRef?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
-    }
+    };
     /**
      * ConfigMapEnvSource selects a ConfigMap to populate the environment
      * variables with.
@@ -754,16 +753,16 @@ export namespace Schemas {
      * The contents of the target ConfigMap's Data field will represent the
      * key-value pairs as environment variables.
      */
-    export interface k8s$io$api$core$v1$ConfigMapEnvSource {
+    export type k8s$io$api$core$v1$ConfigMapEnvSource = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /**
          * Specify whether the ConfigMap must be defined
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /** Selects a key from a ConfigMap. */
-    export interface k8s$io$api$core$v1$ConfigMapKeySelector {
+    export type k8s$io$api$core$v1$ConfigMapKeySelector = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /** The key to select. */
         key?: string;
@@ -772,7 +771,7 @@ export namespace Schemas {
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /**
      * Adapts a ConfigMap into a projected volume.
      *
@@ -782,7 +781,7 @@ export namespace Schemas {
      * Note that this is identical to a configmap volume source without the default
      * mode.
      */
-    export interface k8s$io$api$core$v1$ConfigMapProjection {
+    export type k8s$io$api$core$v1$ConfigMapProjection = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /**
          * If unspecified, each key-value pair in the Data field of the referenced
@@ -800,7 +799,7 @@ export namespace Schemas {
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /**
      * Adapts a ConfigMap into a volume.
      *
@@ -809,7 +808,7 @@ export namespace Schemas {
      * the items element is populated with specific mappings of keys to paths.
      * ConfigMap volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$ConfigMapVolumeSource {
+    export type k8s$io$api$core$v1$ConfigMapVolumeSource = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /**
          * If unspecified, each key-value pair in the Data field of the referenced
@@ -838,9 +837,9 @@ export namespace Schemas {
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /** A single application container that you want to run within a pod. */
-    export interface k8s$io$api$core$v1$Container {
+    export type k8s$io$api$core$v1$Container = {
         /**
          * Name of the container specified as a DNS_LABEL.
          * Each container in a pod must have a unique name (DNS_LABEL).
@@ -997,9 +996,9 @@ export namespace Schemas {
          * +optional
          */
         tty?: boolean;
-    }
+    };
     /** ContainerPort represents a network port in a single container. */
-    export interface k8s$io$api$core$v1$ContainerPort {
+    export type k8s$io$api$core$v1$ContainerPort = {
         /**
          * If specified, this must be an IANA_SVC_NAME and unique within the pod. Each
          * named port in a pod must have a unique name. Name for the port that can be
@@ -1032,20 +1031,20 @@ export namespace Schemas {
          * +optional
          */
         hostIP?: string;
-    }
+    };
     /**
      * Represents downward API info for projecting into a projected volume.
      * Note that this is identical to a downwardAPI volume source without the default
      * mode.
      */
-    export interface k8s$io$api$core$v1$DownwardAPIProjection {
+    export type k8s$io$api$core$v1$DownwardAPIProjection = {
         /**
          * Items is a list of DownwardAPIVolume file
          * +optional
          */
         items?: Schemas.k8s$io$api$core$v1$DownwardAPIVolumeFile[];
-    }
-    export interface k8s$io$api$core$v1$DownwardAPIVolumeFile {
+    };
+    export type k8s$io$api$core$v1$DownwardAPIVolumeFile = {
         /** Required: Path is  the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..' */
         path?: string;
         fieldRef?: Schemas.k8s$io$api$core$v1$ObjectFieldSelector;
@@ -1060,12 +1059,12 @@ export namespace Schemas {
          * +optional
          */
         mode?: number;
-    }
+    };
     /**
      * DownwardAPIVolumeSource represents a volume containing downward API info.
      * Downward API volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$DownwardAPIVolumeSource {
+    export type k8s$io$api$core$v1$DownwardAPIVolumeSource = {
         /**
          * Items is a list of downward API volume file
          * +optional
@@ -1083,12 +1082,12 @@ export namespace Schemas {
          * +optional
          */
         defaultMode?: number;
-    }
+    };
     /**
      * Represents an empty directory for a pod.
      * Empty directory volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$EmptyDirVolumeSource {
+    export type k8s$io$api$core$v1$EmptyDirVolumeSource = {
         /**
          * What type of storage medium should back this directory.
          * The default is \\"\\" which means to use the node's default medium.
@@ -1098,8 +1097,8 @@ export namespace Schemas {
          */
         medium?: string;
         sizeLimit?: Schemas.k8s$io$apimachinery$pkg$api$resource$Quantity;
-    }
-    export interface k8s$io$api$core$v1$EnvFromSource {
+    };
+    export type k8s$io$api$core$v1$EnvFromSource = {
         /**
          * An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.
          * +optional
@@ -1107,9 +1106,9 @@ export namespace Schemas {
         prefix?: string;
         configMapRef?: Schemas.k8s$io$api$core$v1$ConfigMapEnvSource;
         secretRef?: Schemas.k8s$io$api$core$v1$SecretEnvSource;
-    }
+    };
     /** EnvVar represents an environment variable present in a Container. */
-    export interface k8s$io$api$core$v1$EnvVar {
+    export type k8s$io$api$core$v1$EnvVar = {
         /** Name of the environment variable. Must be a C_IDENTIFIER. */
         name?: string;
         /**
@@ -1125,14 +1124,14 @@ export namespace Schemas {
          */
         value?: string;
         valueFrom?: Schemas.k8s$io$api$core$v1$EnvVarSource;
-    }
+    };
     /** EnvVarSource represents a source for the value of an EnvVar. */
-    export interface k8s$io$api$core$v1$EnvVarSource {
+    export type k8s$io$api$core$v1$EnvVarSource = {
         fieldRef?: Schemas.k8s$io$api$core$v1$ObjectFieldSelector;
         resourceFieldRef?: Schemas.k8s$io$api$core$v1$ResourceFieldSelector;
         configMapKeyRef?: Schemas.k8s$io$api$core$v1$ConfigMapKeySelector;
         secretKeyRef?: Schemas.k8s$io$api$core$v1$SecretKeySelector;
-    }
+    };
     /**
      * An EphemeralContainer is a container that may be added temporarily to an existing pod for
      * user-initiated activities such as debugging. Ephemeral containers have no resource or
@@ -1144,7 +1143,7 @@ export namespace Schemas {
      * once added.
      * This is an alpha feature enabled by the EphemeralContainers feature flag.
      */
-    export interface k8s$io$api$core$v1$EphemeralContainer {
+    export type k8s$io$api$core$v1$EphemeralContainer = {
         ephemeralContainerCommon?: Schemas.k8s$io$api$core$v1$EphemeralContainerCommon;
         /**
          * If set, the name of the container from PodSpec that this ephemeral container targets.
@@ -1154,14 +1153,14 @@ export namespace Schemas {
          * +optional
          */
         targetContainerName?: string;
-    }
+    };
     /**
      * EphemeralContainerCommon is a copy of all fields in Container to be inlined in
      * EphemeralContainer. This separate type allows easy conversion from EphemeralContainer
      * to Container and allows separate documentation for the fields of EphemeralContainer.
      * When a new field is added to Container it must be added here as well.
      */
-    export interface k8s$io$api$core$v1$EphemeralContainerCommon {
+    export type k8s$io$api$core$v1$EphemeralContainerCommon = {
         /**
          * Name of the ephemeral container specified as a DNS_LABEL.
          * This name must be unique among all containers, init containers and ephemeral containers.
@@ -1300,9 +1299,9 @@ export namespace Schemas {
          * +optional
          */
         tty?: boolean;
-    }
+    };
     /** Represents an ephemeral volume that is handled by a normal storage driver. */
-    export interface k8s$io$api$core$v1$EphemeralVolumeSource {
+    export type k8s$io$api$core$v1$EphemeralVolumeSource = {
         volumeClaimTemplate?: Schemas.k8s$io$api$core$v1$PersistentVolumeClaimTemplate;
         /**
          * Specifies a read-only configuration for the volume.
@@ -1310,9 +1309,9 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /** ExecAction describes a \\"run in container\\" action. */
-    export interface k8s$io$api$core$v1$ExecAction {
+    export type k8s$io$api$core$v1$ExecAction = {
         /**
          * Command is the command line to execute inside the container, the working directory for the
          * command  is root ('/') in the container's filesystem. The command is simply exec'd, it is
@@ -1322,13 +1321,13 @@ export namespace Schemas {
          * +optional
          */
         command?: string[];
-    }
+    };
     /**
      * Represents a Fibre Channel volume.
      * Fibre Channel volumes can only be mounted as read/write once.
      * Fibre Channel volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$FCVolumeSource {
+    export type k8s$io$api$core$v1$FCVolumeSource = {
         /**
          * Optional: FC target worldwide names (WWNs)
          * +optional
@@ -1359,12 +1358,12 @@ export namespace Schemas {
          * +optional
          */
         wwids?: string[];
-    }
+    };
     /**
      * FlexVolume represents a generic volume resource that is
      * provisioned/attached using an exec based plugin.
      */
-    export interface k8s$io$api$core$v1$FlexVolumeSource {
+    export type k8s$io$api$core$v1$FlexVolumeSource = {
         /** Driver is the name of the driver to use for this volume. */
         driver?: string;
         /**
@@ -1388,13 +1387,13 @@ export namespace Schemas {
         options?: {
             [key: string]: string;
         };
-    }
+    };
     /**
      * Represents a Flocker volume mounted by the Flocker agent.
      * One and only one of datasetName and datasetUUID should be set.
      * Flocker volumes do not support ownership management or SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$FlockerVolumeSource {
+    export type k8s$io$api$core$v1$FlockerVolumeSource = {
         /**
          * Name of the dataset stored as metadata -> name on the dataset for Flocker
          * should be considered as deprecated
@@ -1406,7 +1405,7 @@ export namespace Schemas {
          * +optional
          */
         datasetUUID?: string;
-    }
+    };
     /**
      * Represents a Persistent Disk resource in Google Compute Engine.
      *
@@ -1415,7 +1414,7 @@ export namespace Schemas {
      * can only be mounted as read/write once or read-only many times. GCE
      * PDs support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$GCEPersistentDiskVolumeSource {
+    export type k8s$io$api$core$v1$GCEPersistentDiskVolumeSource = {
         /**
          * Unique name of the PD resource in GCE. Used to identify the disk in GCE.
          * More info: https://kubernetes.io/docs/concepts/storage/volumes#gcepersistentdisk
@@ -1446,7 +1445,7 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /**
      * Represents a volume that is populated with the contents of a git repository.
      * Git repo volumes do not support ownership management.
@@ -1456,7 +1455,7 @@ export namespace Schemas {
      * EmptyDir into an InitContainer that clones the repo using git, then mount the EmptyDir
      * into the Pod's container.
      */
-    export interface k8s$io$api$core$v1$GitRepoVolumeSource {
+    export type k8s$io$api$core$v1$GitRepoVolumeSource = {
         /** Repository URL */
         repository?: string;
         /**
@@ -1472,12 +1471,12 @@ export namespace Schemas {
          * +optional
          */
         directory?: string;
-    }
+    };
     /**
      * Represents a Glusterfs mount that lasts the lifetime of a pod.
      * Glusterfs volumes do not support ownership management or SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$GlusterfsVolumeSource {
+    export type k8s$io$api$core$v1$GlusterfsVolumeSource = {
         /**
          * EndpointsName is the endpoint name that details Glusterfs topology.
          * More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
@@ -1495,9 +1494,9 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /** HTTPGetAction describes an action based on HTTP Get requests. */
-    export interface k8s$io$api$core$v1$HTTPGetAction {
+    export type k8s$io$api$core$v1$HTTPGetAction = {
         /**
          * Path to access on the HTTP server.
          * +optional
@@ -1521,37 +1520,37 @@ export namespace Schemas {
          * +optional
          */
         httpHeaders?: Schemas.k8s$io$api$core$v1$HTTPHeader[];
-    }
-    export interface k8s$io$api$core$v1$HTTPHeader {
+    };
+    export type k8s$io$api$core$v1$HTTPHeader = {
         /** The header field name */
         name?: string;
         /** The header field value */
         value?: string;
-    }
+    };
     /**
      * Handler defines a specific action that should be taken
      * TODO: pass structured data to these actions, and document that data here.
      */
-    export interface k8s$io$api$core$v1$Handler {
+    export type k8s$io$api$core$v1$Handler = {
         exec?: Schemas.k8s$io$api$core$v1$ExecAction;
         httpGet?: Schemas.k8s$io$api$core$v1$HTTPGetAction;
         tcpSocket?: Schemas.k8s$io$api$core$v1$TCPSocketAction;
-    }
+    };
     /**
      * HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the
      * pod's hosts file.
      */
-    export interface k8s$io$api$core$v1$HostAlias {
+    export type k8s$io$api$core$v1$HostAlias = {
         /** IP address of the host file entry. */
         ip?: string;
         /** Hostnames for the above IP address. */
         hostnames?: string[];
-    }
+    };
     /**
      * Represents a host path mapped into a pod.
      * Host path volumes do not support ownership management or SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$HostPathVolumeSource {
+    export type k8s$io$api$core$v1$HostPathVolumeSource = {
         /**
          * Path of the directory on the host.
          * If the path is a symlink, it will follow the link to the real path.
@@ -1565,13 +1564,13 @@ export namespace Schemas {
          * +optional
          */
         type?: string;
-    }
+    };
     /**
      * Represents an ISCSI disk.
      * ISCSI volumes can only be mounted as read/write once.
      * ISCSI volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$ISCSIVolumeSource {
+    export type k8s$io$api$core$v1$ISCSIVolumeSource = {
         /**
          * iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port
          * is other than default (typically TCP ports 860 and 3260).
@@ -1626,9 +1625,9 @@ export namespace Schemas {
          * +optional
          */
         initiatorName?: string;
-    }
+    };
     /** Maps a string key to a path within a volume. */
-    export interface k8s$io$api$core$v1$KeyToPath {
+    export type k8s$io$api$core$v1$KeyToPath = {
         /** The key to project. */
         key?: string;
         /**
@@ -1648,21 +1647,21 @@ export namespace Schemas {
          * +optional
          */
         mode?: number;
-    }
+    };
     /**
      * Lifecycle describes actions that the management system should take in response to container lifecycle
      * events. For the PostStart and PreStop lifecycle handlers, management of the container blocks
      * until the action is complete, unless the container process fails, in which case the handler is aborted.
      */
-    export interface k8s$io$api$core$v1$Lifecycle {
+    export type k8s$io$api$core$v1$Lifecycle = {
         postStart?: Schemas.k8s$io$api$core$v1$Handler;
         preStop?: Schemas.k8s$io$api$core$v1$Handler;
-    }
+    };
     /**
      * LocalObjectReference contains enough information to let you locate the
      * referenced object inside the same namespace.
      */
-    export interface k8s$io$api$core$v1$LocalObjectReference {
+    export type k8s$io$api$core$v1$LocalObjectReference = {
         /**
          * Name of the referent.
          * More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
@@ -1670,12 +1669,12 @@ export namespace Schemas {
          * +optional
          */
         name?: string;
-    }
+    };
     /**
      * Represents an NFS mount that lasts the lifetime of a pod.
      * NFS volumes do not support ownership management or SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$NFSVolumeSource {
+    export type k8s$io$api$core$v1$NFSVolumeSource = {
         /**
          * Server is the hostname or IP address of the NFS server.
          * More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
@@ -1694,9 +1693,9 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /** Node affinity is a group of node affinity scheduling rules. */
-    export interface k8s$io$api$core$v1$NodeAffinity {
+    export type k8s$io$api$core$v1$NodeAffinity = {
         requiredDuringSchedulingIgnoredDuringExecution?: Schemas.k8s$io$api$core$v1$NodeSelector;
         /**
          * The scheduler will prefer to schedule pods to nodes that satisfy
@@ -1711,21 +1710,21 @@ export namespace Schemas {
          * +optional
          */
         preferredDuringSchedulingIgnoredDuringExecution?: Schemas.k8s$io$api$core$v1$PreferredSchedulingTerm[];
-    }
+    };
     /**
      * A node selector represents the union of the results of one or more label queries
      * over a set of nodes; that is, it represents the OR of the selectors represented
      * by the node selector terms.
      */
-    export interface k8s$io$api$core$v1$NodeSelector {
+    export type k8s$io$api$core$v1$NodeSelector = {
         /** Required. A list of node selector terms. The terms are ORed. */
         nodeSelectorTerms?: Schemas.k8s$io$api$core$v1$NodeSelectorTerm[];
-    }
+    };
     /**
      * A node selector requirement is a selector that contains values, a key, and an operator
      * that relates the key and values.
      */
-    export interface k8s$io$api$core$v1$NodeSelectorRequirement {
+    export type k8s$io$api$core$v1$NodeSelectorRequirement = {
         /** The label key that the selector applies to. */
         key?: string;
         /**
@@ -1742,13 +1741,13 @@ export namespace Schemas {
          * +optional
          */
         values?: string[];
-    }
+    };
     /**
      * A null or empty node selector term matches no objects. The requirements of
      * them are ANDed.
      * The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
      */
-    export interface k8s$io$api$core$v1$NodeSelectorTerm {
+    export type k8s$io$api$core$v1$NodeSelectorTerm = {
         /**
          * A list of node selector requirements by node's labels.
          * +optional
@@ -1759,9 +1758,9 @@ export namespace Schemas {
          * +optional
          */
         matchFields?: Schemas.k8s$io$api$core$v1$NodeSelectorRequirement[];
-    }
+    };
     /** ObjectFieldSelector selects an APIVersioned field of an object. */
-    export interface k8s$io$api$core$v1$ObjectFieldSelector {
+    export type k8s$io$api$core$v1$ObjectFieldSelector = {
         /**
          * Version of the schema the FieldPath is written in terms of, defaults to \\"v1\\".
          * +optional
@@ -1769,8 +1768,8 @@ export namespace Schemas {
         apiVersion?: string;
         /** Path of the field to select in the specified API version. */
         fieldPath?: string;
-    }
-    export interface k8s$io$api$core$v1$PersistentVolumeClaimSpec {
+    };
+    export type k8s$io$api$core$v1$PersistentVolumeClaimSpec = {
         /**
          * AccessModes contains the desired access modes the volume should have.
          * More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
@@ -1797,22 +1796,22 @@ export namespace Schemas {
          */
         volumeMode?: string;
         dataSource?: Schemas.k8s$io$api$core$v1$TypedLocalObjectReference;
-    }
+    };
     /**
      * PersistentVolumeClaimTemplate is used to produce
      * PersistentVolumeClaim objects as part of an EphemeralVolumeSource.
      */
-    export interface k8s$io$api$core$v1$PersistentVolumeClaimTemplate {
+    export type k8s$io$api$core$v1$PersistentVolumeClaimTemplate = {
         metadata?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         spec?: Schemas.k8s$io$api$core$v1$PersistentVolumeClaimSpec;
-    }
+    };
     /**
      * PersistentVolumeClaimVolumeSource references the user's PVC in the same namespace.
      * This volume finds the bound PV and mounts that volume for the pod. A
      * PersistentVolumeClaimVolumeSource is, essentially, a wrapper around another
      * type of volume that is owned by someone else (the system).
      */
-    export interface k8s$io$api$core$v1$PersistentVolumeClaimVolumeSource {
+    export type k8s$io$api$core$v1$PersistentVolumeClaimVolumeSource = {
         /**
          * ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume.
          * More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims
@@ -1824,9 +1823,9 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /** Represents a Photon Controller persistent disk resource. */
-    export interface k8s$io$api$core$v1$PhotonPersistentDiskVolumeSource {
+    export type k8s$io$api$core$v1$PhotonPersistentDiskVolumeSource = {
         /** ID that identifies Photon Controller persistent disk */
         pdID?: string;
         /**
@@ -1835,9 +1834,9 @@ export namespace Schemas {
          * Ex. \\"ext4\\", \\"xfs\\", \\"ntfs\\". Implicitly inferred to be \\"ext4\\" if unspecified.
          */
         fsType?: string;
-    }
+    };
     /** Pod affinity is a group of inter pod affinity scheduling rules. */
-    export interface k8s$io$api$core$v1$PodAffinity {
+    export type k8s$io$api$core$v1$PodAffinity = {
         /**
          * If the affinity requirements specified by this field are not met at
          * scheduling time, the pod will not be scheduled onto the node.
@@ -1862,8 +1861,8 @@ export namespace Schemas {
          * +optional
          */
         preferredDuringSchedulingIgnoredDuringExecution?: Schemas.k8s$io$api$core$v1$WeightedPodAffinityTerm[];
-    }
-    export interface k8s$io$api$core$v1$PodAffinityTerm {
+    };
+    export type k8s$io$api$core$v1$PodAffinityTerm = {
         labelSelector?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelector;
         /**
          * namespaces specifies which namespaces the labelSelector applies to (matches against);
@@ -1879,9 +1878,9 @@ export namespace Schemas {
          * Empty topologyKey is not allowed.
          */
         topologyKey?: string;
-    }
+    };
     /** Pod anti affinity is a group of inter pod anti affinity scheduling rules. */
-    export interface k8s$io$api$core$v1$PodAntiAffinity {
+    export type k8s$io$api$core$v1$PodAntiAffinity = {
         /**
          * If the anti-affinity requirements specified by this field are not met at
          * scheduling time, the pod will not be scheduled onto the node.
@@ -1906,12 +1905,12 @@ export namespace Schemas {
          * +optional
          */
         preferredDuringSchedulingIgnoredDuringExecution?: Schemas.k8s$io$api$core$v1$WeightedPodAffinityTerm[];
-    }
+    };
     /**
      * PodDNSConfig defines the DNS parameters of a pod in addition to
      * those generated from DNSPolicy.
      */
-    export interface k8s$io$api$core$v1$PodDNSConfig {
+    export type k8s$io$api$core$v1$PodDNSConfig = {
         /**
          * A list of DNS name server IP addresses.
          * This will be appended to the base nameservers generated from DNSPolicy.
@@ -1934,24 +1933,24 @@ export namespace Schemas {
          * +optional
          */
         options?: Schemas.k8s$io$api$core$v1$PodDNSConfigOption[];
-    }
+    };
     /** PodDNSConfigOption defines DNS resolver options of a pod. */
-    export interface k8s$io$api$core$v1$PodDNSConfigOption {
+    export type k8s$io$api$core$v1$PodDNSConfigOption = {
         /** Required. */
         name?: string;
         /** +optional */
         value?: string;
-    }
-    export interface k8s$io$api$core$v1$PodReadinessGate {
+    };
+    export type k8s$io$api$core$v1$PodReadinessGate = {
         /** ConditionType refers to a condition in the pod's condition list with matching type. */
         conditionType?: string;
-    }
+    };
     /**
      * PodSecurityContext holds pod-level security attributes and common container settings.
      * Some fields are also present in container.securityContext.  Field values of
      * container.securityContext take precedence over field values of PodSecurityContext.
      */
-    export interface k8s$io$api$core$v1$PodSecurityContext {
+    export type k8s$io$api$core$v1$PodSecurityContext = {
         seLinuxOptions?: Schemas.k8s$io$api$core$v1$SELinuxOptions;
         windowsOptions?: Schemas.k8s$io$api$core$v1$WindowsSecurityContextOptions;
         /**
@@ -2019,9 +2018,9 @@ export namespace Schemas {
          */
         fsGroupChangePolicy?: string;
         seccompProfile?: Schemas.k8s$io$api$core$v1$SeccompProfile;
-    }
+    };
     /** PodSpec is a description of a pod. */
-    export interface k8s$io$api$core$v1$PodSpec {
+    export type k8s$io$api$core$v1$PodSpec = {
         /**
          * List of volumes that can be mounted by containers belonging to the pod.
          * More info: https://kubernetes.io/docs/concepts/storage/volumes
@@ -2301,13 +2300,13 @@ export namespace Schemas {
          * +optional
          */
         setHostnameAsFQDN?: boolean;
-    }
-    export interface k8s$io$api$core$v1$PodTemplateSpec {
+    };
+    export type k8s$io$api$core$v1$PodTemplateSpec = {
         metadata?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         spec?: Schemas.k8s$io$api$core$v1$PodSpec;
-    }
+    };
     /** PortworxVolumeSource represents a Portworx volume resource. */
-    export interface k8s$io$api$core$v1$PortworxVolumeSource {
+    export type k8s$io$api$core$v1$PortworxVolumeSource = {
         /** VolumeID uniquely identifies a Portworx volume */
         volumeID?: string;
         /**
@@ -2322,21 +2321,21 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
+    };
     /**
      * An empty preferred scheduling term matches all objects with implicit weight 0
      * (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
      */
-    export interface k8s$io$api$core$v1$PreferredSchedulingTerm {
+    export type k8s$io$api$core$v1$PreferredSchedulingTerm = {
         /** Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100. */
         weight?: number;
         preference?: Schemas.k8s$io$api$core$v1$NodeSelectorTerm;
-    }
+    };
     /**
      * Probe describes a health check to be performed against a container to determine whether it is
      * alive or ready to receive traffic.
      */
-    export interface k8s$io$api$core$v1$Probe {
+    export type k8s$io$api$core$v1$Probe = {
         handler?: Schemas.k8s$io$api$core$v1$Handler;
         /**
          * Number of seconds after the container has started before liveness probes are initiated.
@@ -2369,8 +2368,8 @@ export namespace Schemas {
          * +optional
          */
         failureThreshold?: number;
-    }
-    export interface k8s$io$api$core$v1$ProjectedVolumeSource {
+    };
+    export type k8s$io$api$core$v1$ProjectedVolumeSource = {
         /**
          * list of volume projections
          * +optional
@@ -2386,12 +2385,12 @@ export namespace Schemas {
          * +optional
          */
         defaultMode?: number;
-    }
+    };
     /**
      * Represents a Quobyte mount that lasts the lifetime of a pod.
      * Quobyte volumes do not support ownership management or SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$QuobyteVolumeSource {
+    export type k8s$io$api$core$v1$QuobyteVolumeSource = {
         /**
          * Registry represents a single or multiple Quobyte Registry services
          * specified as a string as host:port pair (multiple entries are separated with commas)
@@ -2424,12 +2423,12 @@ export namespace Schemas {
          * +optional
          */
         tenant?: string;
-    }
+    };
     /**
      * Represents a Rados Block Device mount that lasts the lifetime of a pod.
      * RBD volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$RBDVolumeSource {
+    export type k8s$io$api$core$v1$RBDVolumeSource = {
         /**
          * A collection of Ceph monitors.
          * More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
@@ -2478,8 +2477,8 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
-    export interface k8s$io$api$core$v1$ResourceFieldSelector {
+    };
+    export type k8s$io$api$core$v1$ResourceFieldSelector = {
         /**
          * Container name: required for volumes, optional for env vars
          * +optional
@@ -2488,9 +2487,9 @@ export namespace Schemas {
         /** Required: resource to select */
         resource?: string;
         divisor?: Schemas.k8s$io$apimachinery$pkg$api$resource$Quantity;
-    }
+    };
     /** ResourceRequirements describes the compute resource requirements. */
-    export interface k8s$io$api$core$v1$ResourceRequirements {
+    export type k8s$io$api$core$v1$ResourceRequirements = {
         /**
          * Limits describes the maximum amount of compute resources allowed.
          * More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
@@ -2509,8 +2508,8 @@ export namespace Schemas {
         requests?: {
             [key: string]: Schemas.k8s$io$apimachinery$pkg$api$resource$Quantity;
         };
-    }
-    export interface k8s$io$api$core$v1$SELinuxOptions {
+    };
+    export type k8s$io$api$core$v1$SELinuxOptions = {
         /**
          * User is a SELinux user label that applies to the container.
          * +optional
@@ -2531,8 +2530,8 @@ export namespace Schemas {
          * +optional
          */
         level?: string;
-    }
-    export interface k8s$io$api$core$v1$ScaleIOVolumeSource {
+    };
+    export type k8s$io$api$core$v1$ScaleIOVolumeSource = {
         /** The host address of the ScaleIO API Gateway. */
         gateway?: string;
         /** The name of the storage system as configured in ScaleIO. */
@@ -2578,8 +2577,8 @@ export namespace Schemas {
          * +optional
          */
         readOnly?: boolean;
-    }
-    export interface k8s$io$api$core$v1$SeccompProfile {
+    };
+    export type k8s$io$api$core$v1$SeccompProfile = {
         /**
          * type indicates which kind of seccomp profile will be applied.
          * Valid options are:
@@ -2598,7 +2597,7 @@ export namespace Schemas {
          * +optional
          */
         localhostProfile?: string;
-    }
+    };
     /**
      * SecretEnvSource selects a Secret to populate the environment
      * variables with.
@@ -2606,16 +2605,16 @@ export namespace Schemas {
      * The contents of the target Secret's Data field will represent the
      * key-value pairs as environment variables.
      */
-    export interface k8s$io$api$core$v1$SecretEnvSource {
+    export type k8s$io$api$core$v1$SecretEnvSource = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /**
          * Specify whether the Secret must be defined
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /** SecretKeySelector selects a key of a Secret. */
-    export interface k8s$io$api$core$v1$SecretKeySelector {
+    export type k8s$io$api$core$v1$SecretKeySelector = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /** The key of the secret to select from.  Must be a valid secret key. */
         key?: string;
@@ -2624,7 +2623,7 @@ export namespace Schemas {
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /**
      * Adapts a secret into a projected volume.
      *
@@ -2633,7 +2632,7 @@ export namespace Schemas {
      * Note that this is identical to a secret volume source without the default
      * mode.
      */
-    export interface k8s$io$api$core$v1$SecretProjection {
+    export type k8s$io$api$core$v1$SecretProjection = {
         localObjectReference?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
         /**
          * If unspecified, each key-value pair in the Data field of the referenced
@@ -2651,7 +2650,7 @@ export namespace Schemas {
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /**
      * Adapts a Secret into a volume.
      *
@@ -2659,7 +2658,7 @@ export namespace Schemas {
      * as files using the keys in the Data field as the file names.
      * Secret volumes support ownership management and SELinux relabeling.
      */
-    export interface k8s$io$api$core$v1$SecretVolumeSource {
+    export type k8s$io$api$core$v1$SecretVolumeSource = {
         /**
          * Name of the secret in the pod's namespace to use.
          * More info: https://kubernetes.io/docs/concepts/storage/volumes#secret
@@ -2693,13 +2692,13 @@ export namespace Schemas {
          * +optional
          */
         optional?: boolean;
-    }
+    };
     /**
      * SecurityContext holds security configuration that will be applied to a container.
      * Some fields are present in both SecurityContext and PodSecurityContext.  When both
      * are set, the values in SecurityContext take precedence.
      */
-    export interface k8s$io$api$core$v1$SecurityContext {
+    export type k8s$io$api$core$v1$SecurityContext = {
         capabilities?: Schemas.k8s$io$api$core$v1$Capabilities;
         /**
          * Run container in privileged mode.
@@ -2761,14 +2760,14 @@ export namespace Schemas {
          */
         procMount?: string;
         seccompProfile?: Schemas.k8s$io$api$core$v1$SeccompProfile;
-    }
+    };
     /**
      * ServiceAccountTokenProjection represents a projected service account token
      * volume. This projection can be used to insert a service account token into
      * the pods runtime filesystem for use against APIs (Kubernetes API Server or
      * otherwise).
      */
-    export interface k8s$io$api$core$v1$ServiceAccountTokenProjection {
+    export type k8s$io$api$core$v1$ServiceAccountTokenProjection = {
         /**
          * Audience is the intended audience of the token. A recipient of a token
          * must identify itself with an identifier specified in the audience of the
@@ -2792,9 +2791,9 @@ export namespace Schemas {
          * token into.
          */
         path?: string;
-    }
+    };
     /** Represents a StorageOS persistent volume resource. */
-    export interface k8s$io$api$core$v1$StorageOSVolumeSource {
+    export type k8s$io$api$core$v1$StorageOSVolumeSource = {
         /**
          * VolumeName is the human-readable name of the StorageOS volume.  Volume
          * names are only unique within a namespace.
@@ -2824,26 +2823,26 @@ export namespace Schemas {
          */
         readOnly?: boolean;
         secretRef?: Schemas.k8s$io$api$core$v1$LocalObjectReference;
-    }
-    export interface k8s$io$api$core$v1$Sysctl {
+    };
+    export type k8s$io$api$core$v1$Sysctl = {
         /** Name of a property to set */
         name?: string;
         /** Value of a property to set */
         value?: string;
-    }
-    export interface k8s$io$api$core$v1$TCPSocketAction {
+    };
+    export type k8s$io$api$core$v1$TCPSocketAction = {
         port?: Schemas.k8s$io$apimachinery$pkg$util$intstr$IntOrString;
         /**
          * Optional: Host name to connect to, defaults to the pod IP.
          * +optional
          */
         host?: string;
-    }
+    };
     /**
      * The pod this Toleration is attached to tolerates any taint that matches
      * the triple <key,value,effect> using the matching operator <operator>.
      */
-    export interface k8s$io$api$core$v1$Toleration {
+    export type k8s$io$api$core$v1$Toleration = {
         /**
          * Key is the taint key that the toleration applies to. Empty means match all taint keys.
          * If the key is empty, operator must be Exists; this combination means to match all values and all keys.
@@ -2878,9 +2877,9 @@ export namespace Schemas {
          * +optional
          */
         tolerationSeconds?: string;
-    }
+    };
     /** TopologySpreadConstraint specifies how to spread matching pods among the given topology. */
-    export interface k8s$io$api$core$v1$TopologySpreadConstraint {
+    export type k8s$io$api$core$v1$TopologySpreadConstraint = {
         /**
          * MaxSkew describes the degree to which pods may be unevenly distributed.
          * When \`whenUnsatisfiable=DoNotSchedule\`, it is the maximum permitted difference
@@ -2934,12 +2933,12 @@ export namespace Schemas {
          */
         whenUnsatisfiable?: string;
         labelSelector?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelector;
-    }
+    };
     /**
      * TypedLocalObjectReference contains enough information to let you locate the
      * typed referenced object inside the same namespace.
      */
-    export interface k8s$io$api$core$v1$TypedLocalObjectReference {
+    export type k8s$io$api$core$v1$TypedLocalObjectReference = {
         /**
          * APIGroup is the group for the resource being referenced.
          * If APIGroup is not specified, the specified Kind must be in the core API group.
@@ -2951,9 +2950,9 @@ export namespace Schemas {
         kind?: string;
         /** Name is the name of resource being referenced */
         name?: string;
-    }
+    };
     /** Volume represents a named volume in a pod that may be accessed by any container in the pod. */
-    export interface k8s$io$api$core$v1$Volume {
+    export type k8s$io$api$core$v1$Volume = {
         /**
          * Volume's name.
          * Must be a DNS_LABEL and unique within the pod.
@@ -2961,16 +2960,16 @@ export namespace Schemas {
          */
         name?: string;
         volumeSource?: Schemas.k8s$io$api$core$v1$VolumeSource;
-    }
+    };
     /** volumeDevice describes a mapping of a raw block device within a container. */
-    export interface k8s$io$api$core$v1$VolumeDevice {
+    export type k8s$io$api$core$v1$VolumeDevice = {
         /** name must match the name of a persistentVolumeClaim in the pod */
         name?: string;
         /** devicePath is the path inside of the container that the device will be mapped to. */
         devicePath?: string;
-    }
+    };
     /** VolumeMount describes a mounting of a Volume within a container. */
-    export interface k8s$io$api$core$v1$VolumeMount {
+    export type k8s$io$api$core$v1$VolumeMount = {
         /** This must match the Name of a Volume. */
         name?: string;
         /**
@@ -3006,18 +3005,18 @@ export namespace Schemas {
          * +optional
          */
         subPathExpr?: string;
-    }
-    export interface k8s$io$api$core$v1$VolumeProjection {
+    };
+    export type k8s$io$api$core$v1$VolumeProjection = {
         secret?: Schemas.k8s$io$api$core$v1$SecretProjection;
         downwardAPI?: Schemas.k8s$io$api$core$v1$DownwardAPIProjection;
         configMap?: Schemas.k8s$io$api$core$v1$ConfigMapProjection;
         serviceAccountToken?: Schemas.k8s$io$api$core$v1$ServiceAccountTokenProjection;
-    }
+    };
     /**
      * Represents the source of a volume to mount.
      * Only one of its members may be specified.
      */
-    export interface k8s$io$api$core$v1$VolumeSource {
+    export type k8s$io$api$core$v1$VolumeSource = {
         hostPath?: Schemas.k8s$io$api$core$v1$HostPathVolumeSource;
         emptyDir?: Schemas.k8s$io$api$core$v1$EmptyDirVolumeSource;
         gcePersistentDisk?: Schemas.k8s$io$api$core$v1$GCEPersistentDiskVolumeSource;
@@ -3047,9 +3046,9 @@ export namespace Schemas {
         storageos?: Schemas.k8s$io$api$core$v1$StorageOSVolumeSource;
         csi?: Schemas.k8s$io$api$core$v1$CSIVolumeSource;
         ephemeral?: Schemas.k8s$io$api$core$v1$EphemeralVolumeSource;
-    }
+    };
     /** Represents a vSphere volume resource. */
-    export interface k8s$io$api$core$v1$VsphereVirtualDiskVolumeSource {
+    export type k8s$io$api$core$v1$VsphereVirtualDiskVolumeSource = {
         /** Path that identifies vSphere volume vmdk */
         volumePath?: string;
         /**
@@ -3069,17 +3068,17 @@ export namespace Schemas {
          * +optional
          */
         storagePolicyID?: string;
-    }
-    export interface k8s$io$api$core$v1$WeightedPodAffinityTerm {
+    };
+    export type k8s$io$api$core$v1$WeightedPodAffinityTerm = {
         /**
          * weight associated with matching the corresponding podAffinityTerm,
          * in the range 1-100.
          */
         weight?: number;
         podAffinityTerm?: Schemas.k8s$io$api$core$v1$PodAffinityTerm;
-    }
+    };
     /** WindowsSecurityContextOptions contain Windows-specific options and credentials. */
-    export interface k8s$io$api$core$v1$WindowsSecurityContextOptions {
+    export type k8s$io$api$core$v1$WindowsSecurityContextOptions = {
         /**
          * GMSACredentialSpecName is the name of the GMSA credential spec to use.
          * +optional
@@ -3100,7 +3099,7 @@ export namespace Schemas {
          * +optional
          */
         runAsUserName?: string;
-    }
+    };
     /**
      * Quantity is a fixed-point representation of a number.
      * It provides convenient marshaling/unmarshaling in JSON and YAML,
@@ -3161,9 +3160,9 @@ export namespace Schemas {
      * +k8s:deepcopy-gen=true
      * +k8s:openapi-gen=true
      */
-    export interface k8s$io$apimachinery$pkg$api$resource$Quantity {
+    export type k8s$io$apimachinery$pkg$api$resource$Quantity = {
         string?: string;
-    }
+    };
     /**
      * FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.
      *
@@ -3178,11 +3177,11 @@ export namespace Schemas {
      * The exact format is defined in sigs.k8s.io/structured-merge-diff
      * +protobuf.options.(gogoproto.goproto_stringer)=false
      */
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$FieldsV1 {
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$FieldsV1 = {
         /** Raw is the underlying serialization of this object. */
         Raw?: string;
-    }
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelector {
+    };
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelector = {
         /**
          * matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels
          * map is equivalent to an element of matchExpressions, whose key field is \\"key\\", the
@@ -3197,12 +3196,12 @@ export namespace Schemas {
          * +optional
          */
         matchExpressions?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelectorRequirement[];
-    }
+    };
     /**
      * A label selector requirement is a selector that contains values, a key, and an operator that
      * relates the key and values.
      */
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelectorRequirement {
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$LabelSelectorRequirement = {
         /**
          * key is the label key that the selector applies to.
          * +patchMergeKey=key
@@ -3222,12 +3221,12 @@ export namespace Schemas {
          * +optional
          */
         values?: string[];
-    }
+    };
     /**
      * ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource
      * that the fieldset applies to.
      */
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$ManagedFieldsEntry {
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$ManagedFieldsEntry = {
         /** Manager is an identifier of the workflow managing these fields. */
         manager?: string;
         /**
@@ -3249,12 +3248,12 @@ export namespace Schemas {
          */
         fieldsType?: string;
         fieldsV1?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$FieldsV1;
-    }
+    };
     /**
      * ObjectMeta is metadata that all persisted resources must have, which includes all objects
      * users must create.
      */
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta {
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta = {
         /**
          * Name must be unique within a namespace. Is required when creating resources, although
          * some resources may allow a client to request the generation of an appropriate name
@@ -3415,13 +3414,13 @@ export namespace Schemas {
          * +optional
          */
         managedFields?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ManagedFieldsEntry[];
-    }
+    };
     /**
      * OwnerReference contains enough information to let you identify an owning
      * object. An owning object must be in the same namespace as the dependent, or
      * be cluster-scoped, so there is no namespace field.
      */
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$OwnerReference {
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$OwnerReference = {
         /** API version of the referent. */
         apiVersion?: string;
         /**
@@ -3454,7 +3453,7 @@ export namespace Schemas {
          * +optional
          */
         blockOwnerDeletion?: boolean;
-    }
+    };
     /**
      * Time is a wrapper around time.Time which supports correct
      * marshaling to YAML and JSON.  Wrappers are provided for many
@@ -3464,7 +3463,7 @@ export namespace Schemas {
      * +protobuf.as=Timestamp
      * +protobuf.options.(gogoproto.goproto_stringer)=false
      */
-    export interface k8s$io$apimachinery$pkg$apis$meta$v1$Time {
+    export type k8s$io$apimachinery$pkg$apis$meta$v1$Time = {
         /**
          * Represents seconds of UTC time since Unix epoch
          * 1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
@@ -3478,22 +3477,22 @@ export namespace Schemas {
          * inclusive. This field may be limited in precision depending on context.
          */
         nanos?: number;
-    }
+    };
     /**
      * +protobuf=true
      * +protobuf.options.(gogoproto.goproto_stringer)=false
      * +k8s:openapi-gen=true
      */
-    export interface k8s$io$apimachinery$pkg$util$intstr$IntOrString {
+    export type k8s$io$apimachinery$pkg$util$intstr$IntOrString = {
         type?: string;
         intVal?: number;
         strVal?: string;
-    }
-    export interface rollout$AbortRolloutRequest {
+    };
+    export type rollout$AbortRolloutRequest = {
         name?: string;
         namespace?: string;
-    }
-    export interface rollout$AnalysisRunInfo {
+    };
+    export type rollout$AnalysisRunInfo = {
         objectMeta?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         icon?: string;
         revision?: number;
@@ -3503,12 +3502,12 @@ export namespace Schemas {
         inconclusive?: number;
         error?: number;
         jobs?: Schemas.rollout$JobInfo[];
-    }
-    export interface rollout$ContainerInfo {
+    };
+    export type rollout$ContainerInfo = {
         name?: string;
         image?: string;
-    }
-    export interface rollout$ExperimentInfo {
+    };
+    export type rollout$ExperimentInfo = {
         objectMeta?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         icon?: string;
         revision?: number;
@@ -3516,29 +3515,29 @@ export namespace Schemas {
         message?: string;
         replicaSets?: Schemas.rollout$ReplicaSetInfo[];
         analysisRuns?: Schemas.rollout$AnalysisRunInfo[];
-    }
-    export interface rollout$JobInfo {
+    };
+    export type rollout$JobInfo = {
         objectMeta?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         status?: string;
         icon?: string;
-    }
-    export interface rollout$NamespaceInfo {
+    };
+    export type rollout$NamespaceInfo = {
         namespace?: string;
         availableNamespaces?: string[];
-    }
-    export interface rollout$PodInfo {
+    };
+    export type rollout$PodInfo = {
         objectMeta?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         status?: string;
         icon?: string;
         ready?: string;
         restarts?: number;
-    }
-    export interface rollout$PromoteRolloutRequest {
+    };
+    export type rollout$PromoteRolloutRequest = {
         name?: string;
         namespace?: string;
         full?: boolean;
-    }
-    export interface rollout$ReplicaSetInfo {
+    };
+    export type rollout$ReplicaSetInfo = {
         objectMeta?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         status?: string;
         icon?: string;
@@ -3553,16 +3552,16 @@ export namespace Schemas {
         scaleDownDeadline?: string;
         images?: string[];
         pods?: Schemas.rollout$PodInfo[];
-    }
-    export interface rollout$RestartRolloutRequest {
+    };
+    export type rollout$RestartRolloutRequest = {
         name?: string;
         namespace?: string;
-    }
-    export interface rollout$RetryRolloutRequest {
+    };
+    export type rollout$RetryRolloutRequest = {
         name?: string;
         namespace?: string;
-    }
-    export interface rollout$RolloutInfo {
+    };
+    export type rollout$RolloutInfo = {
         objectMeta?: Schemas.k8s$io$apimachinery$pkg$apis$meta$v1$ObjectMeta;
         status?: string;
         message?: string;
@@ -3583,29 +3582,29 @@ export namespace Schemas {
         analysisRuns?: Schemas.rollout$AnalysisRunInfo[];
         containers?: Schemas.rollout$ContainerInfo[];
         steps?: Schemas.github$com$argoproj$argo_rollouts$pkg$apis$rollouts$v1alpha1$CanaryStep[];
-    }
-    export interface rollout$RolloutInfoList {
+    };
+    export type rollout$RolloutInfoList = {
         rollouts?: Schemas.rollout$RolloutInfo[];
-    }
-    export interface rollout$RolloutWatchEvent {
+    };
+    export type rollout$RolloutWatchEvent = {
         type?: string;
         rolloutInfo?: Schemas.rollout$RolloutInfo;
-    }
-    export interface rollout$SetImageRequest {
+    };
+    export type rollout$SetImageRequest = {
         rollout?: string;
         container?: string;
         image?: string;
         tag?: string;
         namespace?: string;
-    }
-    export interface rollout$UndoRolloutRequest {
+    };
+    export type rollout$UndoRolloutRequest = {
         rollout?: string;
         revision?: string;
         namespace?: string;
-    }
-    export interface rollout$VersionInfo {
+    };
+    export type rollout$VersionInfo = {
         rolloutsVersion?: string;
-    }
+    };
 }
 export interface Response$RolloutService_GetNamespace$Status$200 {
     \\"application/json\\": Schemas.rollout$NamespaceInfo;

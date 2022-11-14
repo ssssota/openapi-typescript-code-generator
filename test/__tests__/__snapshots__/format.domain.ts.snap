@@ -11,9 +11,9 @@ exports[`Format Types format.domain 1`] = `
 
 
 export namespace Schemas {
-    export interface CustomType {
+    export type CustomType = {
         name?: string;
-    }
+    };
     export type BinaryFormat_String = Blob;
     export type IntOrStringFormat_String = number | string;
     export type CustomTypeFormat_String = CustomType;
@@ -22,9 +22,9 @@ export namespace Schemas {
     export type IntOrStringFormat_Int = number | string;
     export type CustomTypeFormat_Int = CustomType;
     export type DateTimeFormat_Int = Date;
-    export interface ObjectPropertyCustomType {
+    export type ObjectPropertyCustomType = {
         date?: Date;
-    }
+    };
     export type Binary = Blob;
     export type IntOrString = number | string;
     export type AandB = A & B;

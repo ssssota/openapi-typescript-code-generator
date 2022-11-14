@@ -268,9 +268,8 @@ export namespace Schemas {
     export type ArrayStringType = string[];
     export type ArrayNumberType = number[];
     export type ArrayBooleanType = boolean[];
-    export interface ObjectEmptyPropertiesType {
-    }
-    export interface ObjectHasPropertiesType {
+    export type ObjectEmptyPropertiesType = {};
+    export type ObjectHasPropertiesType = {
         stringType?: string;
         numberType?: number;
         booleanType?: boolean;
@@ -278,7 +277,7 @@ export namespace Schemas {
         objectType?: {
             requiredStringType: string;
         };
-    }
+    };
     export type OneOfType = string | number | {};
     export type AllOfType = {
         A?: string;
@@ -290,13 +289,13 @@ export namespace Schemas {
     export type LocalRefBooleanType = Schemas.BooleanType;
     export type LocalRefArrayStringType = Schemas.BooleanType;
     export type LocalRefObjectHasPropertiesType = Schemas.ObjectHasPropertiesType;
-    export interface LocalRefObjectProperties {
+    export type LocalRefObjectProperties = {
         stringType: Schemas.StringType;
         numberType: Schemas.NumberType;
         booleanType: Schemas.BooleanType;
         arrayType: Schemas.BooleanType;
         objectType: Schemas.ObjectHasPropertiesType;
-    }
+    };
     export type LocalRefOneOfType = Schemas.StringType | Schemas.NumberType | Schemas.ObjectHasPropertiesType | Schemas.LocalRefObjectProperties;
     export type LocalRefAllOfType = Schemas.StringType & Schemas.NumberType & Schemas.ObjectHasPropertiesType & Schemas.LocalRefObjectProperties;
     export type LocalReferenceBeforeResolvedSchema1 = Schemas.UnresolvedTarget1;
@@ -304,12 +303,12 @@ export namespace Schemas {
     export type LocalReferenceBeforeResolvedSchema2 = Schemas.UnresolvedTarget2;
     export type UnresolvedTarget2 = Schemas.UnresolvedTarget3;
     export type UnresolvedTarget3 = number;
-    export interface LocalReferenceBeforeResolvedSchema3 {
+    export type LocalReferenceBeforeResolvedSchema3 = {
         unresolvedTarget4?: Schemas.UnresolvedTarget4;
-    }
-    export interface UnresolvedTarget4 {
+    };
+    export type UnresolvedTarget4 = {
         unresolvedTarget5?: Schemas.UnresolvedTarget5;
-    }
+    };
     export type UnresolvedTarget5 = string;
     export type RemoteString = string;
     export type RemoteRefString = Schemas.RemoteString;
@@ -324,10 +323,10 @@ export namespace Schemas {
                 export type RemoteArray = string[];
                 export namespace Level4 {
                     /** Level 4 */
-                    export interface RemoteObject {
+                    export type RemoteObject = {
                         A?: string;
                         B?: number;
-                    }
+                    };
                 }
             }
         }

@@ -8,6 +8,7 @@ export interface Params$Create {
   type: ts.TypeNode;
   comment?: string;
   deprecated?: boolean;
+  typeParameters?: readonly ts.TypeParameterDeclaration[];
 }
 
 export interface Factory {
@@ -21,7 +22,7 @@ export const create = ({ factory }: Pick<ts.TransformationContext, "factory">): 
     undefined,
     params.export && [factory.createModifier(ts.SyntaxKind.ExportKeyword)],
     factory.createIdentifier(params.name),
-    undefined,
+    params.typeParameters,
     params.type,
   );
   if (params.comment) {
