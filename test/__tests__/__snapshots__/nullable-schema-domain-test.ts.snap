@@ -15,7 +15,7 @@ export namespace Schemas {
         child: Schemas.child;
     };
     export type child = {
-        name?: string;
+        name: string;
     } | null;
 }
 export interface Parameter$getObjHasNullable {
