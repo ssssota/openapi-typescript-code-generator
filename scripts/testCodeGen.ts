@@ -37,6 +37,9 @@ const main = () => {
   Writer.generateTypedefWithTemplateCode("test/unknown.schema.domain/index.yml", "test/code/unknown.schema.domain/client.ts", false, {
     sync: false,
   });
+  Writer.generateTypedefWithTemplateCode("test/nullable.schema.domain/index.yml", "test/code/nullable.schema.domain/client.ts", false, {
+    sync: false,
+  });
 
   Writer.generateSplitCode("test/api.test.domain/index.yml", "test/code/split");
   Writer.generateSplitCode("test/multi-type.test.domain/index.yml", "test/code/mulit-type-test.domain");

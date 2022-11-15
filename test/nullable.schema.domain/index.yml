@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: api.test.domain
+  description: Library test schema
+  license:
+    name: MIT
+
+servers:
+  - url: "http://dev.nullable.schema.domain/"
+    description: Development Environment
+  - url: "https://nullable.schema.domain/"
+    description: Production Environment
+
+tags:
+  - name: test
+
+components:
+  schemas:
+    member:
+      type: object
+      additionalProperties: false
+      required:
+        - child
+      properties:
+        child:
+          $ref: "#/components/schemas/child"
+    child:
+      type: object
+      nullable: true
+      additionalProperties: false
+      required:
+        - id
+      properties:
+        name:
+          type: string
+
+paths:
+  /get/objHasNullable:
+    get:
+      operationId: getObjHasNullable
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Number Book ID
+          schema:
+            type: number
+            format: uuid
+      responses:
+        200:
+          description: "get books"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/member"
