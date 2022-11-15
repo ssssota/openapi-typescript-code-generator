@@ -71,12 +71,9 @@ export const generateInterface = (
     export: true,
     name: convertContext.escapeDeclarationText(name),
     comment: ExternalDocumentation.addComment(schema.description, schema.externalDocs),
-    type:
-      schema.nullable === true
-        ? factory.UnionTypeNode.create({
-            typeNodes: [typeNode, factory.TypeNode.create({ type: "null" })],
-          })
-        : typeNode,
+    type: factory.UnionTypeNode.create({
+      typeNodes: [typeNode, schema.nullable === true ? factory.TypeNode.create({ type: "null" }) : undefined].flatMap(v => (v ? [v] : [])),
+    }),
   });
 };
 
