@@ -11,12 +11,12 @@ exports[`Nullable client.ts 1`] = `
 
 
 export namespace Schemas {
-    export type member = {
+    export interface member {
         child: Schemas.child;
-    };
-    export type child = {
+    }
+    export interface child {
         name?: string;
-    } | null;
+    }
 }
 export interface Parameter$getObjHasNullable {
     /** Number Book ID */
