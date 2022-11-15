@@ -1,0 +1,7 @@
+version: "3"
+services:
+  openapi-generator-server:
+    image: openapitools/openapi-generator-cli:v6.2.1
+    volumes:
+      - ./:/local
+    command: generate -g typescript-axios -i local/test/nullable.schema.domain/index.yml -o local/test/code/openapi-generator --api-package=client --model-package=models --additional-properties=withSeparateModelsAndApi=true,useSingleRequestParameter=true
