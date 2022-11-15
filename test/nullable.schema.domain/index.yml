@@ -28,7 +28,7 @@ components:
       nullable: true
       additionalProperties: false
       required:
-        - id
+        - name
       properties:
         name:
           type: string

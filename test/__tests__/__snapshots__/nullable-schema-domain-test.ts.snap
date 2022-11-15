@@ -6,7 +6,6 @@ exports[`Nullable client.ts 1`] = `
 // 
 // OpenApi : 3.1.0
 // 
-// License  : MIT
 // 
 
 
@@ -15,7 +14,7 @@ export namespace Schemas {
         child: Schemas.child;
     }
     export interface child {
-        name?: string;
+        name: string;
     }
 }
 export interface Parameter$getObjHasNullable {
